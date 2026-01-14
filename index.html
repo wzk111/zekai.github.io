@@ -1,20 +1,211 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Ruo Rong | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wu Zekai | Portfolio</title>
+
+  <meta name="description" content="Wu Zekai — Software Engineer focused on Game Engines and ROS2. Portfolio and projects." />
+  <meta name="theme-color" content="#0b1220" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <h1>Ruo Rong</h1>
-  <p>Software Engineer | Game Engine | ROS2</p>
+  <!-- Top progress bar -->
+  <div class="progress" id="progress"></div>
 
-  <h2>Projects</h2>
-  <ul>
-    <li>Insight Engine – Custom 2D Physics Engine</li>
-    <li>Invenio Engine – Custom 3D Engine</li>
-    <li>Venti ROS2 Collision Detection</li>
-  </ul>
+  <!-- Navbar -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="brand" href="#home" aria-label="Go to top">
+        <span class="brand__dot"></span>
+        <span class="brand__text">Wu Zekai</span>
+      </a>
 
-  <a href="resume.pdf">Download Resume</a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn--ghost" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </nav>
+
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle theme" title="Toggle theme">
+        <span id="themeIcon">🌙</span>
+      </button>
+
+      <button class="icon-btn nav__menu" id="menuBtn" aria-label="Open menu" title="Menu">
+        ☰
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile" id="mobileMenu" aria-hidden="true">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main class="container" id="home">
+    <section class="hero reveal">
+      <div class="hero__left">
+        <p class="pill">Available for opportunities</p>
+
+        <h1 class="hero__title">
+          Hi, I’m <span class="grad">Wu Zekai</span>.
+        </h1>
+
+        <p class="hero__subtitle">
+          <span class="muted">I build</span>
+          <span class="type" id="typeTarget"></span>
+          <span class="cursor" aria-hidden="true"></span>
+        </p>
+
+        <p class="hero__desc">
+          Software Engineer focused on <b>Game Engines</b> and <b>ROS2</b>.
+          I like building performant systems, clean tools, and reliable pipelines.
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn btn--ghost" href="resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+        </div>
+
+        <div class="social">
+          <a class="social__item" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn (update link)">
+            LinkedIn
+          </a>
+          <a class="social__item" href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub (update link)">
+            GitHub
+          </a>
+          <button class="social__item" id="copyEmail" type="button" aria-label="Copy email">
+            Copy Email
+          </button>
+          <span class="toast" id="toast" role="status" aria-live="polite"></span>
+        </div>
+
+        <p class="tiny muted">
+          Tip: Update LinkedIn/GitHub links above + email in <code>script.js</code>.
+        </p>
+      </div>
+
+      <div class="hero__right reveal">
+        <div class="card card--profile">
+          <div class="card__top">
+            <div class="avatar" aria-hidden="true">WZ</div>
+            <div>
+              <p class="card__name">Wu Zekai</p>
+              <p class="card__role muted">Software Engineer • Game Engine • ROS2</p>
+            </div>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <p class="stat__label muted">Focus</p>
+              <p class="stat__value">Performance</p>
+            </div>
+            <div class="stat">
+              <p class="stat__label muted">Style</p>
+              <p class="stat__value">Clean Systems</p>
+            </div>
+            <div class="stat">
+              <p class="stat__label muted">Mode</p>
+              <p class="stat__value">Build & Iterate</p>
+            </div>
+          </div>
+
+          <div class="card__hint muted">
+            Click “Details” on projects for a popup.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="section__head reveal">
+        <h2>Projects</h2>
+        <p class="muted">A few things I’ve built recently.</p>
+      </div>
+
+      <div class="grid reveal" id="projectGrid">
+        <!-- Cards injected by JS -->
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <div class="section__head reveal">
+        <h2>Skills</h2>
+        <p class="muted">Tools & technologies I’m comfortable with.</p>
+      </div>
+
+      <div class="chips reveal">
+        <span class="chip">C++</span>
+        <span class="chip">C#</span>
+        <span class="chip">Python</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">ROS2</span>
+        <span class="chip">React</span>
+        <span class="chip">Spring Boot</span>
+        <span class="chip">Git</span>
+        <span class="chip">SQL</span>
+        <span class="chip">Unity</span>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="section__head reveal">
+        <h2>Contact</h2>
+        <p class="muted">Want to chat? Send me a message.</p>
+      </div>
+
+      <div class="contact reveal">
+        <div class="contact__card">
+          <h3>Let’s work together</h3>
+          <p class="muted">
+            Best way to reach me is email. You can also connect via LinkedIn.
+          </p>
+
+          <div class="contact__actions">
+            <a class="btn" id="mailBtn" href="#">Email Me</a>
+            <a class="btn btn--ghost" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+          </div>
+
+          <p class="tiny muted">
+            © <span id="year"></span> Wu Zekai. Built with GitHub Pages.
+          </p>
+        </div>
+
+        <div class="contact__note">
+          <p class="muted">
+            If you want, you can add a “blog” section later, or embed a project demo GIF.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Back to top -->
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal__overlay" id="modalOverlay"></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal__head">
+        <h3 id="modalTitle"></h3>
+        <button class="icon-btn" id="modalClose" aria-label="Close">✕</button>
+      </div>
+      <div class="modal__body" id="modalBody"></div>
+      <div class="modal__foot" id="modalFoot"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
