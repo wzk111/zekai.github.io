@@ -55,7 +55,7 @@ const PROJECTS = [
       </ul>
     `,
     primary: null,
-    links: []
+    links: [ { label: "Game Demo Video", url: "https://www.youtube.com/watch?v=aFhAFdCKcBw" }]
   },
   {
     title: "Insight Engine — Custom 2D physics engine",
@@ -69,19 +69,21 @@ const PROJECTS = [
         <li>Optimized broad-phase using an Implicit Grid, scaling from <b>60 → 600</b> objects at 60 FPS.</li>
       </ul>
     `,
-    primary: { label: "Demo Video", url: "https://www.youtube.com/watch?v=XxKPY0HtbqA" },
+    primary: null,
     links: [
-      { label: "Demo Video", url: "https://www.youtube.com/watch?v=XxKPY0HtbqA" }
+      { label: "Engine Demo Video", url: "https://www.youtube.com/watch?v=ztrM86Iz1bM&list=PLTEWNGDCjfENdTdvsIIrAyv_HB1xBJHbx",
+        label: "Game Demo Video", url: "https://www.youtube.com/watch?v=XxKPY0HtbqA"
+       }
     ]
   }
 ];
 
 // ====== Typing effect ======
 const phrases = [
-  "C++/ROS2 planning systems.",
-  "performance-focused tools.",
-  "developer utilities.",
-  "physics engines."
+  "C++ systems engineering.",
+  "ROS2 robotics integration.",
+  "performance optimization.",
+  "tools and game engines."
 ];
 
 function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
