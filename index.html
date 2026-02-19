@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wu Zekai | Portfolio</title>
 
-  <meta name="description" content="Wu Zekai — Software Engineer focused on Game Engines and ROS2. Portfolio and projects." />
+  <meta name="description" content="Wu Zekai — Software Engineer (C++/ROS2). Performance, planning systems, and developer tools." />
   <meta name="theme-color" content="#0b1220" />
 
   <link rel="stylesheet" href="style.css" />
@@ -24,6 +24,7 @@
       </a>
 
       <nav class="nav__links" aria-label="Primary">
+        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
@@ -41,6 +42,7 @@
 
     <!-- Mobile menu -->
     <div class="mobile" id="mobileMenu" aria-hidden="true">
+      <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
@@ -52,7 +54,7 @@
   <main class="container" id="home">
     <section class="hero reveal">
       <div class="hero__left">
-        <p class="pill">Available for opportunities</p>
+        <p class="pill">Open to software engineering opportunities</p>
 
         <h1 class="hero__title">
           Hi, I’m <span class="grad">Wu Zekai</span>.
@@ -65,20 +67,20 @@
         </p>
 
         <p class="hero__desc">
-          Software Engineer focused on <b>Game Engines</b> and <b>ROS2</b>.
-          I like building performant systems, clean tools, and reliable pipelines.
+          Software Engineer focused on <b>C++/ROS2</b> systems and <b>performance</b>.
+          I also build developer tools and physics/game engines.
         </p>
 
         <div class="hero__cta">
-          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn" href="#experience">View Experience</a>
           <a class="btn btn--ghost" href="resume.pdf" target="_blank" rel="noopener">Download Resume</a>
         </div>
 
         <div class="social">
-          <a class="social__item" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn (update link)">
+          <a class="social__item" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
             LinkedIn
           </a>
-          <a class="social__item" href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub (update link)">
+          <a class="social__item" href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">
             GitHub
           </a>
           <button class="social__item" id="copyEmail" type="button" aria-label="Copy email">
@@ -86,10 +88,6 @@
           </button>
           <span class="toast" id="toast" role="status" aria-live="polite"></span>
         </div>
-
-        <p class="tiny muted">
-          Tip: Update LinkedIn/GitHub links above + email in <code>script.js</code>.
-        </p>
       </div>
 
       <div class="hero__right reveal">
@@ -98,29 +96,77 @@
             <div class="avatar" aria-hidden="true">WZ</div>
             <div>
               <p class="card__name">Wu Zekai</p>
-              <p class="card__role muted">Software Engineer • Game Engine • ROS2</p>
+              <p class="card__role muted">Software Engineer • C++/ROS2 • Dev Tools</p>
             </div>
           </div>
 
           <div class="stats">
             <div class="stat">
-              <p class="stat__label muted">Focus</p>
-              <p class="stat__value">Performance</p>
+              <p class="stat__label muted">Planning</p>
+              <p class="stat__value">20–30% faster</p>
             </div>
             <div class="stat">
-              <p class="stat__label muted">Style</p>
-              <p class="stat__value">Clean Systems</p>
+              <p class="stat__label muted">Validation</p>
+              <p class="stat__value">300+ scenarios</p>
             </div>
             <div class="stat">
-              <p class="stat__label muted">Mode</p>
-              <p class="stat__value">Build & Iterate</p>
+              <p class="stat__label muted">Physics</p>
+              <p class="stat__value">1,000+ objects</p>
             </div>
           </div>
 
           <div class="card__hint muted">
-            Click “Details” on projects for a popup.
+            Tip: Click “Details” on projects for a quick overview.
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience">
+      <div class="section__head reveal">
+        <h2>Experience</h2>
+        <p class="muted">Industry experience in autonomous planning and full-stack web development.</p>
+      </div>
+
+      <div class="exp-grid reveal">
+        <article class="exp-card">
+          <div class="exp__top">
+            <h3 class="exp__title">Autonomous Vehicle Planning Engineer Intern — Venti Technologies</h3>
+            <span class="badge">Jan 2025 – Apr 2026</span>
+          </div>
+          <p class="muted tiny">C++ • ROS2 • Planning • Performance</p>
+          <ul class="bullets">
+            <li>Developed behavior and motion planning modules in C++/ROS2 for autonomous logistics vehicles.</li>
+            <li>Profiled and tuned algorithms/parameters to improve planning efficiency by <b>20–30%</b> (runtime + robustness).</li>
+            <li>Implemented and validated components across <b>300+</b> simulation/on-vehicle scenarios; triaged edge cases via logs and data analysis.</li>
+            <li>Integrated planning with perception, localization, mapping, and control using ROS topics/services/TF.</li>
+          </ul>
+        </article>
+
+        <article class="exp-card">
+          <div class="exp__top">
+            <h3 class="exp__title">Full-Stack Web Developer — AiDA Technologies Pte Ltd</h3>
+            <span class="badge">Apr 2021 – Oct 2021</span>
+          </div>
+          <p class="muted tiny">React • Spring Boot • SQL Server • API Testing</p>
+          <ul class="bullets">
+            <li>Delivered end-to-end web features from Adobe XD prototypes to React UI and Spring Boot REST APIs.</li>
+            <li>Integrated SQL Server queries and validated data flows with API testing to ensure correct response formatting.</li>
+          </ul>
+        </article>
+
+        <article class="exp-card">
+          <div class="exp__top">
+            <h3 class="exp__title">Teaching Assistant — DigiPen Institute of Technology Singapore</h3>
+            <span class="badge">Aug 2023 – Apr 2024</span>
+          </div>
+          <p class="muted tiny">Teaching • Debugging • Communication</p>
+          <ul class="bullets">
+            <li>Led labs for <b>200+</b> students; debugged assignments/projects and coached problem-solving in C++/math-heavy modules.</li>
+            <li>Modules: Linear Algebra & Geometry, Game Implementation Techniques, High-Level Programming 2, Calculus & Analytic Geometry, Software Engineering Project 2.</li>
+          </ul>
+        </article>
       </div>
     </section>
 
@@ -128,7 +174,7 @@
     <section class="section" id="projects">
       <div class="section__head reveal">
         <h2>Projects</h2>
-        <p class="muted">A few things I’ve built recently.</p>
+        <p class="muted">Selected developer tools and engine work.</p>
       </div>
 
       <div class="grid reveal" id="projectGrid">
@@ -140,20 +186,37 @@
     <section class="section" id="skills">
       <div class="section__head reveal">
         <h2>Skills</h2>
-        <p class="muted">Tools & technologies I’m comfortable with.</p>
+        <p class="muted">Core strengths first, then tools I’m familiar with.</p>
       </div>
 
-      <div class="chips reveal">
-        <span class="chip">C++</span>
-        <span class="chip">C#</span>
-        <span class="chip">Python</span>
-        <span class="chip">JavaScript</span>
-        <span class="chip">ROS2</span>
-        <span class="chip">React</span>
-        <span class="chip">Spring Boot</span>
-        <span class="chip">Git</span>
-        <span class="chip">SQL</span>
-        <span class="chip">Unity</span>
+      <div class="skills-grid reveal">
+        <div class="card">
+          <h3 class="skills__title">Core</h3>
+          <div class="chips">
+            <span class="chip">C++</span>
+            <span class="chip">Python</span>
+            <span class="chip">ROS2</span>
+            <span class="chip">Linux</span>
+            <span class="chip">Git</span>
+            <span class="chip">Bazel</span>
+            <span class="chip">GoogleTest</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="skills__title">Familiar</h3>
+          <div class="chips">
+            <span class="chip">C#</span>
+            <span class="chip">PhysX</span>
+            <span class="chip">React</span>
+            <span class="chip">Spring Boot</span>
+            <span class="chip">Docker</span>
+            <span class="chip">SQL</span>
+            <span class="chip">MongoDB</span>
+            <span class="chip">Unity</span>
+            <span class="chip">Figma</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -161,14 +224,14 @@
     <section class="section" id="contact">
       <div class="section__head reveal">
         <h2>Contact</h2>
-        <p class="muted">Want to chat? Send me a message.</p>
+        <p class="muted">Want to chat? Email is the fastest way.</p>
       </div>
 
       <div class="contact reveal">
         <div class="contact__card">
-          <h3>Let’s work together</h3>
+          <h3>Let’s build something</h3>
           <p class="muted">
-            Best way to reach me is email. You can also connect via LinkedIn.
+            I’m happy to share more details, demos, or code samples.
           </p>
 
           <div class="contact__actions">
@@ -183,7 +246,7 @@
 
         <div class="contact__note">
           <p class="muted">
-            If you want, you can add a “blog” section later, or embed a project demo GIF.
+            Prefer LinkedIn? Feel free to connect — I reply quickly.
           </p>
         </div>
       </div>

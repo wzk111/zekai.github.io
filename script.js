@@ -1,65 +1,87 @@
-// ====== Update these ======
+// ====== Update these (if needed) ======
 const PROFILE = {
   name: "Wu Zekai",
-  email: "2201764@sit.singaporetech.edu.sg",     // <-- change this
-  linkedin: "https://www.linkedin.com/in/zekai-wu-wzk/",  // you gave this
-  github: "https://github.com/wzk111"       // <-- change this
+  email: "2201764@sit.singaporetech.edu.sg",
+  linkedin: "https://www.linkedin.com/in/zekai-wu-wzk/",
+  github: "https://github.com/wzk111"
 };
 
+// Projects shown on the website
 const PROJECTS = [
   {
-    title: "Insight Engine — Custom 2D Physics Engine",
-    badge: "Game Engine",
-    desc: "Custom 2D physics + collision system designed for performant gameplay.",
-    tags: ["C++", "SAT", "AABB", "Spatial Hashing"],
+    title: "pls-organize — Preview-first file organizer",
+    badge: "Dev Tool",
+    desc: "Deterministic organizer with preview + rollback (scan→plan→apply→undo).",
+    tags: ["Python", "CLI", "YAML", "Safety"],
     details: `
       <ul>
-        <li>Designed core physics primitives (rigidbody, colliders, integration).</li>
-        <li>Implemented collision detection (AABB/SAT) + response pipeline.</li>
-        <li>Optimized broad-phase with an implicit grid / spatial partitioning.</li>
+        <li>Designed a deterministic <b>scan → plan → apply → undo</b> pipeline (preview-first, human-approved execution).</li>
+        <li>Implemented a transactional <b>journal</b> so file operations are rollback-safe.</li>
+        <li>Supports YAML rules and explainable plans (rule reason + confidence).</li>
       </ul>
     `,
+    primary: { label: "GitHub", url: "https://github.com/wzk111/pls-organize" },
     links: [
-      { label: "GitHub", url: "https://github.com/wzk111" },
-      { label: "Demo Video (Fragment)", url: "https://www.youtube.com/watch?v=XxKPY0HtbqA" }
+      { label: "GitHub", url: "https://github.com/wzk111/pls-organize" }
     ]
   },
   {
-    title: "Invenio Engine — Custom 3D Engine",
-    badge: "Engine",
-    desc: "3D engine with physics system from design to implementation.",
-    tags: ["C++", "3D Math", "Physics", "Tools"],
+    title: "pls-readme — README generator",
+    badge: "Dev Tool",
+    desc: "CLI that scans repos to generate README drafts with stack inference.",
+    tags: ["Python", "CLI", "Markdown"],
     details: `
       <ul>
-        <li>Led overall physics system design and implementation.</li>
-        <li>Built core components and debugging tooling for iteration.</li>
-        <li>Focused on stability and predictable collision behavior.</li>
+        <li>Scans repository structure to generate a clean, standardized <code>README.md</code>.</li>
+        <li>Infers tech stack from files/configs and supports safe overwrite with explicit confirmation.</li>
+        <li>Optional directory tree rendering and badges.</li>
       </ul>
     `,
+    primary: { label: "GitHub", url: "https://github.com/wzk111/pls-readme" },
+    links: [
+      { label: "GitHub", url: "https://github.com/wzk111/pls-readme" }
+    ]
+  },
+  {
+    title: "Invenio Engine — Custom 3D game engine",
+    badge: "Engine",
+    desc: "Built a PhysX-based C++ physics layer and exposed it to C# gameplay via native bindings.",
+    tags: ["C++", "C#", "PhysX", "Interop"],
+    details: `
+      <ul>
+        <li>Built a C++ physics layer on NVIDIA PhysX and exposed APIs to C# for efficient cross-language calls.</li>
+        <li>Implemented rigid bodies, colliders, and physics-driven interactions; supported <b>1,000+</b> concurrent objects.</li>
+        <li>Designed architecture to keep the physics layer scalable and maintainable.</li>
+      </ul>
+    `,
+    primary: null,
     links: []
   },
   {
-    title: "Venti ROS2 Collision Detection",
-    badge: "ROS2",
-    desc: "Collision checking and performance improvements for autonomous vehicle planning.",
-    tags: ["ROS2", "C++", "Performance", "Planning"],
+    title: "Insight Engine — Custom 2D physics engine",
+    badge: "Game Engine",
+    desc: "Custom 2D physics + collision system optimized with an implicit grid broad-phase.",
+    tags: ["C++", "ECS", "SAT", "Spatial Hashing"],
     details: `
       <ul>
-        <li>Worked on collision detection logic for ego trajectory vs obstacles.</li>
-        <li>Explored broad-phase optimizations for faster runtime checks.</li>
-        <li>Integrated within ROS2-based planning and simulation workflows.</li>
+        <li>Implemented 2D rigid bodies + box/circle colliders with ECS integration.</li>
+        <li>Collision detection/handling for static, dynamic, and kinematic bodies.</li>
+        <li>Optimized broad-phase using an Implicit Grid, scaling from <b>60 → 600</b> objects at 60 FPS.</li>
       </ul>
     `,
-    links: []
+    primary: { label: "Demo Video", url: "https://www.youtube.com/watch?v=XxKPY0HtbqA" },
+    links: [
+      { label: "Demo Video", url: "https://www.youtube.com/watch?v=XxKPY0HtbqA" }
+    ]
   }
 ];
 
 // ====== Typing effect ======
 const phrases = [
-  "game engines.",
-  "physics systems.",
-  "ROS2 tools.",
-  "performance-focused code."
+  "C++/ROS2 planning systems.",
+  "performance-focused tools.",
+  "developer utilities.",
+  "physics engines."
 ];
 
 function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
@@ -70,12 +92,12 @@ async function typeLoop(el){
     const text = phrases[i % phrases.length];
     for(let k=0; k<=text.length; k++){
       el.textContent = text.slice(0, k);
-      await sleep(35);
+      await sleep(32);
     }
     await sleep(800);
     for(let k=text.length; k>=0; k--){
       el.textContent = text.slice(0, k);
-      await sleep(20);
+      await sleep(18);
     }
     await sleep(250);
     i++;
@@ -93,7 +115,6 @@ function applyTheme(theme){
 function initTheme(){
   const saved = localStorage.getItem("theme");
   if(saved === "light" || saved === "dark") return applyTheme(saved);
-  // default: dark
   applyTheme("dark");
 }
 
@@ -158,7 +179,11 @@ function renderProjects(){
   if(!grid) return;
 
   grid.innerHTML = PROJECTS.map((p, idx) => {
-    const tags = p.tags.map(t => `<span class="tag">${t}</span>`).join("");
+    const tags = (p.tags || []).map(t => `<span class="tag">${t}</span>`).join("");
+    const primaryBtn = p.primary
+      ? `<a class="btn btn--ghost" href="${p.primary.url}" target="_blank" rel="noopener">${p.primary.label}</a>`
+      : "";
+
     return `
       <article class="project">
         <div class="project__top">
@@ -168,7 +193,8 @@ function renderProjects(){
         <p class="project__desc">${p.desc}</p>
         <div class="tags">${tags}</div>
         <div class="project__actions">
-          <button class="btn btn--ghost" data-details="${idx}">Details</button>
+          ${primaryBtn}
+          <button class="btn btn--ghost" data-details="${idx}" type="button">Details</button>
         </div>
       </article>
     `;
@@ -197,7 +223,7 @@ function openModal(index){
     `<a class="btn btn--ghost" href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`
   ).join("");
 
-  foot.innerHTML = linkButtons || `<span class="muted">Add GitHub/video links in <code>script.js</code> when ready.</span>`;
+  foot.innerHTML = linkButtons || `<span class="muted">Links can be added in <code>script.js</code>.</span>`;
 
   modal.classList.add("show");
   modal.setAttribute("aria-hidden", "false");
@@ -230,7 +256,6 @@ function initContact(){
   });
 
   const mailto = `mailto:${PROFILE.email}?subject=${encodeURIComponent("Hello Wu Zekai")}`;
-
   if(mailBtn) mailBtn.href = mailto;
 
   if(copyBtn){
@@ -253,7 +278,6 @@ function initContact(){
 
 // ====== Init ======
 (function init(){
-  // Year
   const y = document.getElementById("year");
   if(y) y.textContent = String(new Date().getFullYear());
 
@@ -264,11 +288,9 @@ function initContact(){
   renderProjects();
   initContact();
 
-  // Typing
   const t = document.getElementById("typeTarget");
   if(t) typeLoop(t);
 
-  // Theme button
   const themeBtn = document.getElementById("themeBtn");
   if(themeBtn){
     themeBtn.addEventListener("click", () => {
